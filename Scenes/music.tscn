@@ -1,0 +1,10 @@
+[gd_scene load_steps=2 format=3 uid="uid://dbahs7od122sn"]
+
+[ext_resource type="AudioStream" uid="uid://n31e4a1hol5q" path="res://Sounds/Music.mp3" id="1_fbmny"]
+
+[node name="Music" type="AudioStreamPlayer2D"]
+stream = ExtResource("1_fbmny")
+autoplay = true
+max_distance = 5000.0
+attenuation = 0.0
+bus = &"Music"

@@ -1,0 +1,792 @@
+[gd_scene load_steps=30 format=4 uid="uid://drovarsepqrpv"]
+
+[ext_resource type="Script" uid="uid://c7jgv4860wbdq" path="res://Scripts/camera_2d.gd" id="1_gl6un"]
+[ext_resource type="PackedScene" uid="uid://jh7o7lbfc8ox" path="res://Scenes/Santa.tscn" id="1_iukft"]
+[ext_resource type="Script" uid="uid://j5ir7jf8bxu7" path="res://Scripts/InstructionViewing.gd" id="1_wxwew"]
+[ext_resource type="Texture2D" uid="uid://ctius5bjpm12m" path="res://Sprites/life.png" id="3_3so38"]
+[ext_resource type="Texture2D" uid="uid://ci86481qqeujg" path="res://Sprites/Yune Assets/Tileset Terrain (16x16).png" id="3_fgofq"]
+[ext_resource type="Texture2D" uid="uid://bn4qmwuinhckf" path="res://Sprites/Yune Assets/Vegetation.png" id="4_2irst"]
+[ext_resource type="PackedScene" uid="uid://bbn64ie22itei" path="res://Scenes/Bell.tscn" id="4_kldst"]
+[ext_resource type="PackedScene" uid="uid://cn020q8icpqbv" path="res://Scenes/Sky.tscn" id="5_b2bpf"]
+[ext_resource type="Texture2D" uid="uid://bjpt60rekqy47" path="res://Sprites/Yune Assets/Objects.png" id="5_bf53h"]
+[ext_resource type="Texture2D" uid="uid://bm4s2dm76gmbw" path="res://Sprites/Instructions/All-key.png" id="6_acvyw"]
+[ext_resource type="PackedScene" uid="uid://c8wvcr8hbh6fx" path="res://Scenes/MovingBell.tscn" id="8_2irst"]
+[ext_resource type="FontFile" uid="uid://c10jyv1b6dc2m" path="res://Fonts/Stacked pixel.ttf" id="9_bf53h"]
+[ext_resource type="AudioStream" uid="uid://v4n6bdcv2w2y" path="res://Sounds/Ring.mp3" id="10_71axn"]
+[ext_resource type="Script" uid="uid://cp265tf8k8ep5" path="res://Scripts/end_screen.gd" id="11_dahhg"]
+[ext_resource type="Texture2D" uid="uid://cl4iswmx110ho" path="res://Sprites/Story/snowflake.png" id="13_3cx6b"]
+[ext_resource type="Script" uid="uid://hpvsu8gytpjk" path="res://Scenes/pause_menu.gd" id="16_alh3a"]
+
+[sub_resource type="Gradient" id="Gradient_4q8tf"]
+colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 0)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_u5g7b"]
+gradient = SubResource("Gradient_4q8tf")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_x3xnh"]
+particle_flag_disable_z = true
+emission_shape_offset = Vector3(0, -2100, 0)
+emission_shape = 3
+emission_box_extents = Vector3(250, 100, 1)
+angle_min = 1.0728835e-05
+angle_max = 1.0728835e-05
+direction = Vector3(0, 0, 0)
+angular_velocity_min = -20.000015
+angular_velocity_max = -1.6093254e-05
+gravity = Vector3(0, 20, 0)
+radial_accel_min = -1.0000023
+radial_accel_max = -1.0000023
+damping_min = 5.0
+damping_max = 5.0
+scale_min = 0.01
+scale_max = 0.099999994
+color_ramp = SubResource("GradientTexture1D_u5g7b")
+collision_mode = 1
+collision_friction = 1.0
+collision_bounce = 0.0
+
+[sub_resource type="LabelSettings" id="LabelSettings_dahhg"]
+font = ExtResource("9_bf53h")
+font_size = 100
+
+[sub_resource type="LabelSettings" id="LabelSettings_3so38"]
+font = ExtResource("9_bf53h")
+font_size = 40
+
+[sub_resource type="LabelSettings" id="LabelSettings_acvyw"]
+font = ExtResource("9_bf53h")
+font_size = 32
+outline_size = 3
+outline_color = Color(0, 0, 0, 1)
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_iukft"]
+distance = -6.0
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_wxwew"]
+texture = ExtResource("3_fgofq")
+1:3/0 = 0
+3:3/0 = 0
+5:3/0 = 0
+8:3/0 = 0
+10:3/0 = 0
+12:3/0 = 0
+15:3/0 = 0
+17:3/0 = 0
+1:5/0 = 0
+3:5/0 = 0
+5:5/0 = 0
+8:5/0 = 0
+10:5/0 = 0
+12:5/0 = 0
+15:5/0 = 0
+17:5/0 = 0
+1:7/0 = 0
+2:7/0 = 0
+4:7/0 = 0
+6:7/0 = 0
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_acvyw"]
+texture = ExtResource("4_2irst")
+1:2/size_in_atlas = Vector2i(3, 4)
+1:2/0 = 0
+4:2/size_in_atlas = Vector2i(3, 4)
+4:2/0 = 0
+7:2/size_in_atlas = Vector2i(3, 4)
+7:2/0 = 0
+10:2/size_in_atlas = Vector2i(2, 2)
+10:2/0 = 0
+12:2/size_in_atlas = Vector2i(2, 2)
+12:2/0 = 0
+14:2/size_in_atlas = Vector2i(2, 2)
+14:2/0 = 0
+10:4/0 = 0
+12:4/0 = 0
+11:4/0 = 0
+14:4/size_in_atlas = Vector2i(2, 2)
+14:4/0 = 0
+16:4/size_in_atlas = Vector2i(1, 2)
+16:4/0 = 0
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_alh3a"]
+texture = ExtResource("5_bf53h")
+1:1/0 = 0
+2:1/0 = 0
+3:1/0 = 0
+4:1/0 = 0
+5:1/0 = 0
+6:1/0 = 0
+7:1/0 = 0
+8:1/0 = 0
+9:1/0 = 0
+10:1/0 = 0
+11:1/0 = 0
+12:1/0 = 0
+13:1/0 = 0
+14:1/0 = 0
+15:1/0 = 0
+16:1/0 = 0
+17:1/0 = 0
+18:1/0 = 0
+20:1/0 = 0
+21:1/0 = 0
+22:1/0 = 0
+25:1/0 = 0
+26:1/0 = 0
+27:1/0 = 0
+1:2/0 = 0
+2:2/0 = 0
+3:2/0 = 0
+4:2/0 = 0
+5:2/0 = 0
+6:2/0 = 0
+7:2/0 = 0
+8:2/0 = 0
+20:2/0 = 0
+21:2/0 = 0
+22:2/0 = 0
+26:2/0 = 0
+1:3/0 = 0
+2:3/0 = 0
+3:3/0 = 0
+4:3/0 = 0
+5:3/0 = 0
+6:3/0 = 0
+7:3/0 = 0
+8:3/0 = 0
+10:3/0 = 0
+11:3/0 = 0
+12:3/0 = 0
+13:3/0 = 0
+15:3/0 = 0
+16:3/0 = 0
+17:3/0 = 0
+18:3/0 = 0
+20:3/0 = 0
+21:3/0 = 0
+22:3/0 = 0
+26:3/0 = 0
+27:3/0 = 0
+3:4/0 = 0
+4:4/0 = 0
+5:4/0 = 0
+6:4/0 = 0
+7:4/0 = 0
+10:4/0 = 0
+11:4/0 = 0
+12:4/0 = 0
+13:4/0 = 0
+14:4/0 = 0
+10:5/0 = 0
+11:5/0 = 0
+12:5/0 = 0
+13:5/0 = 0
+14:5/0 = 0
+16:5/0 = 0
+17:5/0 = 0
+18:5/0 = 0
+19:5/0 = 0
+20:5/0 = 0
+22:5/0 = 0
+1:7/0 = 0
+2:7/0 = 0
+3:7/0 = 0
+4:7/0 = 0
+5:7/0 = 0
+6:7/0 = 0
+7:7/0 = 0
+8:7/0 = 0
+9:7/0 = 0
+10:7/0 = 0
+11:7/0 = 0
+3:9/0 = 0
+1:10/0 = 0
+2:10/0 = 0
+3:10/0 = 0
+4:10/0 = 0
+1:11/0 = 0
+2:11/0 = 0
+3:11/0 = 0
+4:11/0 = 0
+5:11/0 = 0
+6:11/0 = 0
+7:11/0 = 0
+8:11/0 = 0
+9:11/0 = 0
+11:11/0 = 0
+1:12/0 = 0
+2:12/0 = 0
+3:12/0 = 0
+4:12/0 = 0
+5:12/0 = 0
+6:12/0 = 0
+7:12/0 = 0
+9:12/0 = 0
+10:12/0 = 0
+11:12/0 = 0
+12:12/0 = 0
+13:12/0 = 0
+14:12/0 = 0
+15:12/0 = 0
+16:12/0 = 0
+17:12/0 = 0
+18:12/0 = 0
+19:12/0 = 0
+20:12/0 = 0
+21:12/0 = 0
+1:13/0 = 0
+2:13/0 = 0
+3:13/0 = 0
+4:13/0 = 0
+5:13/0 = 0
+8:13/0 = 0
+1:14/0 = 0
+2:14/0 = 0
+3:14/0 = 0
+4:14/0 = 0
+5:14/0 = 0
+6:14/0 = 0
+7:14/0 = 0
+8:14/0 = 0
+9:14/0 = 0
+10:14/0 = 0
+11:14/0 = 0
+12:14/0 = 0
+14:14/0 = 0
+15:14/0 = 0
+16:14/0 = 0
+1:16/0 = 0
+2:16/0 = 0
+3:16/0 = 0
+4:16/0 = 0
+5:16/0 = 0
+6:16/0 = 0
+7:16/0 = 0
+8:16/0 = 0
+9:16/0 = 0
+11:16/0 = 0
+14:16/0 = 0
+15:16/0 = 0
+16:16/0 = 0
+17:16/0 = 0
+23:3/0 = 0
+24:3/0 = 0
+25:3/0 = 0
+25:2/0 = 0
+24:2/0 = 0
+23:2/0 = 0
+
+[sub_resource type="TileSet" id="TileSet_3cx6b"]
+sources/1 = SubResource("TileSetAtlasSource_wxwew")
+sources/2 = SubResource("TileSetAtlasSource_acvyw")
+sources/3 = SubResource("TileSetAtlasSource_alh3a")
+
+[sub_resource type="LabelSettings" id="LabelSettings_71axn"]
+font = ExtResource("9_bf53h")
+font_size = 128
+outline_size = 8
+outline_color = Color(0, 0, 0, 1)
+
+[sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_3cx6b"]
+polygon = PackedVector2Array(-335, 63, 291, 65, 292, 128, -335, 121)
+
+[node name="Node2D" type="Node2D" node_paths=PackedStringArray("keys")]
+script = ExtResource("1_wxwew")
+keys = NodePath("EndScreen/TextureRect")
+
+[node name="Snow" type="GPUParticles2D" parent="."]
+z_index = 1
+position = Vector2(0, -2150)
+amount = 200
+sub_emitter = NodePath(".")
+texture = ExtResource("13_3cx6b")
+lifetime = 30.0
+preprocess = 10.0
+visibility_rect = Rect2(-250, -2200, 500, 4400)
+process_material = SubResource("ParticleProcessMaterial_x3xnh")
+
+[node name="EndScreen" type="CanvasLayer" parent="."]
+script = ExtResource("11_dahhg")
+
+[node name="ColorRect" type="ColorRect" parent="EndScreen"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 1)
+
+[node name="VBoxContainer" type="VBoxContainer" parent="EndScreen"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+alignment = 1
+
+[node name="Title" type="Label" parent="EndScreen/VBoxContainer"]
+layout_mode = 2
+label_settings = SubResource("LabelSettings_dahhg")
+horizontal_alignment = 1
+
+[node name="Subtitle" type="Label" parent="EndScreen/VBoxContainer"]
+layout_mode = 2
+label_settings = SubResource("LabelSettings_3so38")
+horizontal_alignment = 1
+
+[node name="Restart" type="Button" parent="EndScreen/VBoxContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("9_bf53h")
+theme_override_font_sizes/font_size = 40
+text = "RESTART"
+flat = true
+autowrap_mode = 2
+
+[node name="Back" type="Button" parent="EndScreen/VBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 2
+theme_override_fonts/font = ExtResource("9_bf53h")
+theme_override_font_sizes/font_size = 40
+text = "BACK"
+flat = true
+
+[node name="HBoxContainer" type="HBoxContainer" parent="EndScreen"]
+offset_right = 40.0
+offset_bottom = 40.0
+scale = Vector2(2, 2)
+
+[node name="TextureRect" type="TextureRect" parent="EndScreen/HBoxContainer"]
+layout_mode = 2
+texture = ExtResource("3_3so38")
+stretch_mode = 5
+
+[node name="Label" type="Label" parent="EndScreen/HBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("9_bf53h")
+text = "9"
+
+[node name="TextureRect" type="TextureRect" parent="EndScreen"]
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -160.0
+offset_top = 25.0
+offset_bottom = 65.0
+grow_horizontal = 0
+texture = ExtResource("6_acvyw")
+expand_mode = 3
+
+[node name="Label" type="Label" parent="EndScreen/TextureRect"]
+layout_mode = 0
+offset_top = -25.0
+offset_right = 72.0
+offset_bottom = 1.0
+text = "KEYS:"
+label_settings = SubResource("LabelSettings_acvyw")
+
+[node name="Camera2D" type="Camera2D" parent="." node_paths=PackedStringArray("target")]
+zoom = Vector2(2.5, 2.5)
+script = ExtResource("1_gl6un")
+target = NodePath("../Player")
+
+[node name="SFX-Bell" type="AudioStreamPlayer2D" parent="Camera2D"]
+stream = ExtResource("10_71axn")
+bus = &"SFX"
+
+[node name="Player" parent="." instance=ExtResource("1_iukft")]
+disable_mode = 2
+wrap_margin = 10.0
+
+[node name="Ground" type="StaticBody2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Ground"]
+shape = SubResource("WorldBoundaryShape2D_iukft")
+
+[node name="TileMapLayer" type="TileMapLayer" parent="Ground"]
+z_index = -1
+scale = Vector2(1.75, 1.75)
+tile_map_data = PackedByteArray("AADy/wAAAQADAAMAAADz/wAAAQADAAMAAAD0/wAAAQADAAMAAAD1/wAAAQADAAMAAAD2/wAAAQADAAMAAAD3/wAAAQADAAMAAAD4/wAAAQADAAMAAAD5/wAAAQADAAMAAAD6/wAAAQADAAMAAAD7/wAAAQADAAMAAAD8/wAAAQADAAMAAAD9/wAAAQADAAMAAAD+/wAAAQADAAMAAAD//wAAAQADAAMAAAAAAAAAAQADAAMAAAABAAAAAQADAAMAAAACAAAAAQADAAMAAAADAAAAAQADAAMAAAAEAAAAAQADAAMAAAAFAAAAAQADAAMAAAAGAAAAAQADAAMAAAAHAAAAAQADAAMAAAAIAAAAAQADAAMAAAAJAAAAAQADAAMAAAAKAAAAAQADAAMAAAALAAAAAQADAAMAAAAMAAAAAQADAAMAAAANAAAAAQADAAMAAADx/wAAAQAIAAMAAAAOAAAAAQAMAAMAAAD1//7/AwAUAAIAAAD1////AwAUAAMAAAD2////AwAVAAMAAAD3////AwAWAAMAAAANAP7/AgAHAAIAAAAMAP//AwATAAUAAAAJAP//AwAQAAUAAAAKAP//AwARAAUAAAALAP//AwASAAUAAAANAP//AwAUAAUAAAD4////AwAXAAMAAAD5//7/AwAYAAIAAAD3//7/AwAWAAIAAAD3//3/AwAWAAEAAAD2//3/AwAVAAEAAAD5////AwAYAAMAAAD2//7/AwAVAAIAAAD1//3/AwAUAAEAAADy////AgAKAAQAAADz////AgALAAQAAAD0////AgALAAQAAADz//7/AgAHAAIAAAAFAP7/AgAHAAIAAAD8////AgALAAQAAAD9////AgALAAQAAAD7////AgALAAQAAAD6////AwAZAAMAAAD/////AgAMAAQAAAD+////AgALAAQAAAABAP//AwAQAAUAAAACAP//AwARAAUAAAAFAP//AwATAAUAAAAEAP//AwASAAUAAAAGAP//AwAUAAUAAADx/wEAAQADAAUAAADy/wEAAQADAAUAAADz/wEAAQADAAUAAAD0/wEAAQADAAUAAAD1/wEAAQADAAUAAAD2/wIAAQADAAUAAAD3/wIAAQADAAUAAAD4/wIAAQADAAUAAAD5/wIAAQADAAUAAAD6/wIAAQADAAUAAAD7/wIAAQADAAUAAAD7/wMAAQADAAUAAAD8/wMAAQADAAUAAAD9/wMAAQADAAUAAAD+/wQAAQADAAUAAAD//wQAAQADAAUAAAAAAAQAAQADAAUAAAABAAQAAQADAAUAAAACAAQAAQADAAUAAAADAAQAAQADAAUAAAAEAAQAAQADAAUAAADx/wIAAQADAAUAAADx/wMAAQADAAUAAADx/wQAAQADAAUAAADy/wQAAQADAAUAAADz/wQAAQADAAUAAAD0/wQAAQADAAUAAAD1/wQAAQADAAUAAAD2/wQAAQADAAUAAAD3/wQAAQADAAUAAAD4/wQAAQADAAUAAAD5/wQAAQADAAUAAAD6/wQAAQADAAUAAAD7/wQAAQADAAUAAAD8/wQAAQADAAUAAAD9/wQAAQADAAUAAAD6/wMAAQADAAUAAAD5/wMAAQADAAUAAAD4/wMAAQADAAUAAAD3/wMAAQADAAUAAAD2/wMAAQADAAUAAAD1/wMAAQADAAUAAAD0/wMAAQADAAUAAADz/wMAAQADAAUAAADy/wMAAQADAAUAAADy/wIAAQADAAUAAADz/wIAAQADAAUAAAD0/wIAAQADAAUAAAD1/wIAAQADAAUAAAD2/wEAAQADAAUAAAD3/wEAAQADAAUAAAD4/wEAAQADAAUAAAD5/wEAAQADAAUAAAD6/wEAAQADAAUAAAD7/wEAAQADAAUAAAD8/wEAAQADAAUAAAD9/wEAAQADAAUAAAD+/wEAAQADAAUAAAD//wEAAQADAAUAAAAAAAEAAQADAAUAAAABAAEAAQADAAUAAAACAAEAAQADAAUAAAADAAEAAQADAAUAAAAEAAEAAQADAAUAAAAFAAEAAQADAAUAAAAFAAIAAQADAAUAAAAGAAIAAQADAAUAAAAHAAIAAQADAAUAAAAIAAIAAQADAAUAAAAJAAIAAQADAAUAAAAJAAEAAQADAAUAAAAIAAEAAQADAAUAAAAHAAEAAQADAAUAAAAGAAEAAQADAAUAAAAAAAIAAQADAAUAAAD//wIAAQADAAUAAAD+/wIAAQADAAUAAAD9/wIAAQADAAUAAAD8/wIAAQADAAUAAAABAAIAAQADAAUAAAACAAIAAQADAAUAAAADAAIAAQADAAUAAAAEAAIAAQADAAUAAAADAAMAAQADAAUAAAACAAMAAQADAAUAAAABAAMAAQADAAUAAAAAAAMAAQADAAUAAAD//wMAAQADAAUAAAD+/wMAAQADAAUAAAAEAAMAAQADAAUAAAAFAAQAAQADAAUAAAAGAAQAAQADAAUAAAAHAAQAAQADAAUAAAAIAAQAAQADAAUAAAAJAAQAAQADAAUAAAAKAAQAAQADAAUAAAALAAQAAQADAAUAAAAMAAQAAQADAAUAAAANAAQAAQADAAUAAAAOAAQAAQADAAUAAAAOAAMAAQADAAUAAAAOAAIAAQADAAUAAAAOAAEAAQADAAUAAAANAAEAAQADAAUAAAAMAAEAAQADAAUAAAALAAEAAQADAAUAAAAKAAEAAQADAAUAAAAGAAMAAQADAAUAAAAFAAMAAQADAAUAAAAHAAMAAQADAAUAAAAIAAMAAQADAAUAAAAJAAMAAQADAAUAAAAKAAMAAQADAAUAAAALAAMAAQADAAUAAAAMAAMAAQADAAUAAAANAAMAAQADAAUAAAANAAIAAQADAAUAAAAMAAIAAQADAAUAAAALAAIAAQADAAUAAAAKAAIAAQADAAUAAAA=")
+tile_set = SubResource("TileSet_3cx6b")
+
+[node name="Sky" parent="." instance=ExtResource("5_b2bpf")]
+
+[node name="Bells" type="Node" parent="."]
+
+[node name="Area2D" parent="Bells" node_paths=PackedStringArray("ringAudio") instance=ExtResource("4_kldst")]
+z_index = -1
+position = Vector2(0, -225.3)
+push_force = 1700.0
+ringAudio = NodePath("../../Camera2D/SFX-Bell")
+
+[node name="Area2D2" parent="Bells" node_paths=PackedStringArray("ringAudio") instance=ExtResource("8_2irst")]
+z_index = -1
+position = Vector2(0, -115)
+move_axis = Vector2(-1, 0)
+move_distance = 210.0
+ringAudio = NodePath("../../Camera2D/SFX-Bell")
+
+[node name="Area2D3" parent="Bells" node_paths=PackedStringArray("ringAudio") instance=ExtResource("8_2irst")]
+z_index = -1
+position = Vector2(0, -325)
+move_distance = 210.0
+ringAudio = NodePath("../../Camera2D/SFX-Bell")
+
+[node name="Area2D4" parent="Bells" node_paths=PackedStringArray("ringAudio") instance=ExtResource("4_kldst")]
+z_index = -1
+position = Vector2(-132, -425)
+push_force = 1700.0
+ringAudio = NodePath("../../Camera2D/SFX-Bell")
+
+[node name="Area2D5" parent="Bells" node_paths=PackedStringArray("ringAudio") instance=ExtResource("4_kldst")]
+z_index = -1
+position = Vector2(132, -425)
+push_force = 1700.0
+ringAudio = NodePath("../../Camera2D/SFX-Bell")
+
+[node name="Area2D6" parent="Bells" node_paths=PackedStringArray("ringAudio") instance=ExtResource("8_2irst")]
+z_index = -1
+position = Vector2(0, -697)
+move_type = 1
+move_axis = Vector2(-1, 0)
+move_distance = 204.0
+radius = 210.0
+ringAudio = NodePath("../../Camera2D/SFX-Bell")
+
+[node name="Area2D7" parent="Bells" node_paths=PackedStringArray("ringAudio") instance=ExtResource("8_2irst")]
+z_index = -1
+position = Vector2(0, -697)
+move_type = 1
+move_axis = Vector2(-1, 0)
+move_distance = 204.0
+radius = 150.0
+angular_speed = -2.0
+ringAudio = NodePath("../../Camera2D/SFX-Bell")
+
+[node name="Area2D8" parent="Bells" node_paths=PackedStringArray("ringAudio") instance=ExtResource("8_2irst")]
+z_index = -1
+position = Vector2(0, -697)
+move_axis = Vector2(-1, 0)
+move_distance = 100.0
+radius = 150.0
+angular_speed = -2.0
+ringAudio = NodePath("../../Camera2D/SFX-Bell")
+
+[node name="Area2D9" parent="Bells" node_paths=PackedStringArray("ringAudio") instance=ExtResource("8_2irst")]
+z_index = -1
+position = Vector2(0, -1128)
+move_axis = Vector2(-1, -1)
+move_distance = 288.0
+radius = 150.0
+angular_speed = -2.0
+ringAudio = NodePath("../../Camera2D/SFX-Bell")
+
+[node name="Area2D10" parent="Bells" node_paths=PackedStringArray("ringAudio") instance=ExtResource("8_2irst")]
+z_index = -1
+position = Vector2(204, -1128)
+move_axis = Vector2(0, 1)
+move_distance = 288.0
+radius = 150.0
+angular_speed = -2.0
+ringAudio = NodePath("../../Camera2D/SFX-Bell")
+
+[node name="Area2D11" parent="Bells" node_paths=PackedStringArray("ringAudio") instance=ExtResource("4_kldst")]
+z_index = -1
+position = Vector2(-150, -1128)
+push_force = 1700.0
+ringAudio = NodePath("../../Camera2D/SFX-Bell")
+
+[node name="Area2D12" parent="Bells" node_paths=PackedStringArray("ringAudio") instance=ExtResource("8_2irst")]
+z_index = -1
+position = Vector2(204, -1580)
+move_axis = Vector2(0, -1)
+move_distance = 100.0
+radius = 150.0
+angular_speed = -2.0
+ringAudio = NodePath("../../Camera2D/SFX-Bell")
+
+[node name="Area2D13" parent="Bells" node_paths=PackedStringArray("ringAudio") instance=ExtResource("8_2irst")]
+z_index = -1
+position = Vector2(-204, -1580)
+move_axis = Vector2(0, 1)
+move_distance = 100.0
+radius = 150.0
+angular_speed = -2.0
+ringAudio = NodePath("../../Camera2D/SFX-Bell")
+
+[node name="Area2D14" parent="Bells" node_paths=PackedStringArray("ringAudio") instance=ExtResource("8_2irst")]
+z_index = -1
+position = Vector2(0, -1580)
+move_type = 1
+move_axis = Vector2(0, -1)
+move_distance = 200.0
+radius = 150.0
+angular_speed = -2.0
+ringAudio = NodePath("../../Camera2D/SFX-Bell")
+
+[node name="Area2D15" parent="Bells" node_paths=PackedStringArray("ringAudio") instance=ExtResource("8_2irst")]
+z_index = -1
+position = Vector2(0, -2050)
+move_axis = Vector2(1, -1)
+move_distance = 288.0
+radius = 150.0
+angular_speed = -2.0
+ringAudio = NodePath("../../Camera2D/SFX-Bell")
+
+[node name="Area2D16" parent="Bells" node_paths=PackedStringArray("ringAudio") instance=ExtResource("4_kldst")]
+z_index = -1
+position = Vector2(-150, -2200)
+push_force = 1700.0
+ringAudio = NodePath("../../Camera2D/SFX-Bell")
+
+[node name="Area2D17" parent="Bells" node_paths=PackedStringArray("ringAudio") instance=ExtResource("4_kldst")]
+z_index = -1
+position = Vector2(150, -1900)
+push_force = 1700.0
+ringAudio = NodePath("../../Camera2D/SFX-Bell")
+
+[node name="Area2D18" parent="Bells" node_paths=PackedStringArray("ringAudio") instance=ExtResource("4_kldst")]
+z_index = -1
+position = Vector2(0, -2550)
+push_force = 1700.0
+ringAudio = NodePath("../../Camera2D/SFX-Bell")
+
+[node name="Area2D19" parent="Bells" node_paths=PackedStringArray("ringAudio") instance=ExtResource("8_2irst")]
+z_index = -1
+position = Vector2(0, -2550)
+move_type = 1
+move_axis = Vector2(1, -1)
+move_distance = 288.0
+radius = 210.0
+angular_speed = -2.0
+ringAudio = NodePath("../../Camera2D/SFX-Bell")
+
+[node name="Area2D20" parent="Bells" node_paths=PackedStringArray("ringAudio") instance=ExtResource("8_2irst")]
+z_index = -1
+position = Vector2(0, -2550)
+move_type = 1
+move_axis = Vector2(-1, 0)
+move_distance = 204.0
+radius = 150.0
+ringAudio = NodePath("../../Camera2D/SFX-Bell")
+
+[node name="Area2D21" parent="Bells" node_paths=PackedStringArray("ringAudio") instance=ExtResource("4_kldst")]
+z_index = -1
+position = Vector2(-200, -3040)
+push_force = 1700.0
+ringAudio = NodePath("../../Camera2D/SFX-Bell")
+
+[node name="Area2D22" parent="Bells" node_paths=PackedStringArray("ringAudio") instance=ExtResource("4_kldst")]
+z_index = -1
+position = Vector2(174, -2850)
+push_force = 1700.0
+ringAudio = NodePath("../../Camera2D/SFX-Bell")
+
+[node name="Area2D23" parent="Bells" node_paths=PackedStringArray("ringAudio") instance=ExtResource("4_kldst")]
+z_index = -1
+position = Vector2(76, -2928)
+push_force = 1700.0
+ringAudio = NodePath("../../Camera2D/SFX-Bell")
+
+[node name="Area2D24" parent="Bells" node_paths=PackedStringArray("ringAudio") instance=ExtResource("4_kldst")]
+z_index = -1
+position = Vector2(174, -3005)
+push_force = 1700.0
+ringAudio = NodePath("../../Camera2D/SFX-Bell")
+
+[node name="Area2D25" parent="Bells" node_paths=PackedStringArray("ringAudio") instance=ExtResource("4_kldst")]
+z_index = -1
+position = Vector2(75, -3183)
+push_force = 1700.0
+ringAudio = NodePath("../../Camera2D/SFX-Bell")
+
+[node name="Area2D26" parent="Bells" node_paths=PackedStringArray("ringAudio") instance=ExtResource("4_kldst")]
+z_index = -1
+position = Vector2(-22, -3111)
+push_force = 1700.0
+ringAudio = NodePath("../../Camera2D/SFX-Bell")
+
+[node name="Area2D27" parent="Bells" node_paths=PackedStringArray("ringAudio") instance=ExtResource("4_kldst")]
+z_index = -1
+position = Vector2(172, -3243)
+push_force = 1700.0
+ringAudio = NodePath("../../Camera2D/SFX-Bell")
+
+[node name="Area2D29" parent="Bells" node_paths=PackedStringArray("ringAudio") instance=ExtResource("4_kldst")]
+z_index = -1
+position = Vector2(-119, -3183)
+push_force = 1700.0
+ringAudio = NodePath("../../Camera2D/SFX-Bell")
+
+[node name="Area2D28" parent="Bells" node_paths=PackedStringArray("ringAudio") instance=ExtResource("8_2irst")]
+z_index = -1
+position = Vector2(0, -3010)
+move_axis = Vector2(-1, 1)
+move_distance = 204.0
+radius = 130.0
+ringAudio = NodePath("../../Camera2D/SFX-Bell")
+
+[node name="Area2D32" parent="Bells" node_paths=PackedStringArray("ringAudio") instance=ExtResource("8_2irst")]
+z_index = -1
+position = Vector2(0, -3645)
+move_type = 1
+move_axis = Vector2(-1, 1)
+move_distance = 204.0
+radius = 210.0
+ringAudio = NodePath("../../Camera2D/SFX-Bell")
+
+[node name="Area2D33" parent="Bells" node_paths=PackedStringArray("ringAudio") instance=ExtResource("8_2irst")]
+z_index = -1
+position = Vector2(0, -3645)
+move_type = 1
+move_axis = Vector2(-1, 1)
+move_distance = 204.0
+radius = 210.0
+phase = 90.0
+ringAudio = NodePath("../../Camera2D/SFX-Bell")
+
+[node name="Area2D34" parent="Bells" node_paths=PackedStringArray("ringAudio") instance=ExtResource("8_2irst")]
+z_index = -1
+position = Vector2(0, -3645)
+move_type = 1
+move_axis = Vector2(-1, 1)
+move_distance = 204.0
+radius = 210.0
+phase = 180.0
+ringAudio = NodePath("../../Camera2D/SFX-Bell")
+
+[node name="Area2D36" parent="Bells" node_paths=PackedStringArray("ringAudio") instance=ExtResource("8_2irst")]
+z_index = -1
+position = Vector2(0, -3645)
+move_type = 1
+move_axis = Vector2(-1, 1)
+move_distance = 204.0
+radius = 210.0
+phase = 45.0
+ringAudio = NodePath("../../Camera2D/SFX-Bell")
+
+[node name="Area2D37" parent="Bells" node_paths=PackedStringArray("ringAudio") instance=ExtResource("8_2irst")]
+z_index = -1
+position = Vector2(0, -3645)
+move_type = 1
+move_axis = Vector2(-1, 1)
+move_distance = 204.0
+radius = 210.0
+phase = 135.0
+ringAudio = NodePath("../../Camera2D/SFX-Bell")
+
+[node name="Area2D38" parent="Bells" node_paths=PackedStringArray("ringAudio") instance=ExtResource("8_2irst")]
+z_index = -1
+position = Vector2(0, -3645)
+move_type = 1
+move_axis = Vector2(-1, 1)
+move_distance = 204.0
+radius = 210.0
+phase = 225.0
+ringAudio = NodePath("../../Camera2D/SFX-Bell")
+
+[node name="Area2D41" parent="Bells" node_paths=PackedStringArray("ringAudio") instance=ExtResource("8_2irst")]
+z_index = -1
+position = Vector2(0, -3645)
+move_type = 1
+move_axis = Vector2(-1, 1)
+move_distance = 204.0
+radius = 150.0
+angular_speed = -2.0
+phase = 90.0
+ringAudio = NodePath("../../Camera2D/SFX-Bell")
+
+[node name="Area2D43" parent="Bells" node_paths=PackedStringArray("ringAudio") instance=ExtResource("8_2irst")]
+z_index = -1
+position = Vector2(0, -3645)
+move_type = 1
+move_axis = Vector2(-1, 1)
+move_distance = 204.0
+radius = 150.0
+angular_speed = -2.0
+phase = 270.0
+ringAudio = NodePath("../../Camera2D/SFX-Bell")
+
+[node name="Area2D30" parent="Bells" node_paths=PackedStringArray("ringAudio") instance=ExtResource("8_2irst")]
+z_index = -1
+position = Vector2(0, -3306)
+move_axis = Vector2(-1, 0)
+move_distance = 210.0
+radius = 130.0
+ringAudio = NodePath("../../Camera2D/SFX-Bell")
+
+[node name="Area2D31" parent="Bells" node_paths=PackedStringArray("ringAudio") instance=ExtResource("8_2irst")]
+z_index = -1
+position = Vector2(0, -3378)
+move_distance = 210.0
+radius = 130.0
+ringAudio = NodePath("../../Camera2D/SFX-Bell")
+
+[node name="Finish" type="Label" parent="."]
+z_index = -1
+offset_left = -19.0
+offset_top = -4100.0
+offset_right = 21.0
+offset_bottom = -3996.0
+text = "finish"
+label_settings = SubResource("LabelSettings_71axn")
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 2
+
+[node name="LightOccluder2D" type="LightOccluder2D" parent="."]
+occluder = SubResource("OccluderPolygon2D_3cx6b")
+
+[node name="PauseMenu" type="CanvasLayer" parent="." node_paths=PackedStringArray("panel")]
+process_mode = 3
+script = ExtResource("16_alh3a")
+panel = NodePath("Panel")
+
+[node name="Panel" type="Panel" parent="PauseMenu"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="PauseMenu/Panel"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+alignment = 1
+
+[node name="Button" type="Button" parent="PauseMenu/Panel/VBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 2
+theme_override_fonts/font = ExtResource("9_bf53h")
+theme_override_font_sizes/font_size = 40
+text = "resume"
+flat = true
+
+[node name="Button2" type="Button" parent="PauseMenu/Panel/VBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 2
+theme_override_fonts/font = ExtResource("9_bf53h")
+theme_override_font_sizes/font_size = 40
+text = "Restart"
+flat = true
+
+[node name="Button3" type="Button" parent="PauseMenu/Panel/VBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 2
+theme_override_fonts/font = ExtResource("9_bf53h")
+theme_override_font_sizes/font_size = 40
+text = "Back"
+flat = true
+
+[connection signal="pressed" from="EndScreen/VBoxContainer/Restart" to="EndScreen" method="_on_restart_pressed"]
+[connection signal="pressed" from="EndScreen/VBoxContainer/Back" to="EndScreen" method="_on_back_pressed"]
+[connection signal="pressed" from="PauseMenu/Panel/VBoxContainer/Button" to="PauseMenu" method="_on_button_pressed"]
+[connection signal="pressed" from="PauseMenu/Panel/VBoxContainer/Button2" to="PauseMenu" method="_on_button_2_pressed"]
+[connection signal="pressed" from="PauseMenu/Panel/VBoxContainer/Button3" to="PauseMenu" method="_on_button_3_pressed"]

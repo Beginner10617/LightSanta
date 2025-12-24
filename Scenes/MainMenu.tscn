@@ -1,0 +1,228 @@
+[gd_scene load_steps=8 format=3 uid="uid://dvc2euwx667pr"]
+
+[ext_resource type="Script" uid="uid://bsxbqd1p5sfye" path="res://Scripts/main_menu.gd" id="1_8um5k"]
+[ext_resource type="FontFile" uid="uid://c10jyv1b6dc2m" path="res://Fonts/Stacked pixel.ttf" id="1_tt5f1"]
+[ext_resource type="Texture2D" uid="uid://c3cbuw7kwc4d6" path="res://Sprites/Stars/Star-03.png" id="2_853f1"]
+[ext_resource type="Texture2D" uid="uid://bvt1ropr4bo22" path="res://Sprites/Stars/Star-01.png" id="3_8saeu"]
+[ext_resource type="Texture2D" uid="uid://d31e6ap5b6m8l" path="res://Sprites/Story/Gifts-2.png" id="4_df05h"]
+[ext_resource type="Texture2D" uid="uid://nbhbfv5vb6e0" path="res://Sprites/Story/Gifts-3.png" id="5_8um5k"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_853f1"]
+font = ExtResource("1_tt5f1")
+font_size = 128
+outline_size = 2
+outline_color = Color(0, 0, 0, 1)
+
+[node name="MainMenu" type="Node2D"]
+script = ExtResource("1_8um5k")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="ColorRect" type="ColorRect" parent="CanvasLayer"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.09803922, 0.09803922, 0.4392157, 1)
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+alignment = 1
+
+[node name="Label" type="Label" parent="CanvasLayer/VBoxContainer"]
+layout_mode = 2
+text = "Light Santa"
+label_settings = SubResource("LabelSettings_853f1")
+horizontal_alignment = 1
+
+[node name="Button" type="Button" parent="CanvasLayer/VBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 2
+theme_override_fonts/font = ExtResource("1_tt5f1")
+theme_override_font_sizes/font_size = 64
+text = "START"
+flat = true
+
+[node name="Button2" type="Button" parent="CanvasLayer/VBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 2
+theme_override_fonts/font = ExtResource("1_tt5f1")
+theme_override_font_sizes/font_size = 64
+text = "INSTRUCTIONS"
+flat = true
+
+[node name="Button3" type="Button" parent="CanvasLayer/VBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 2
+theme_override_fonts/font = ExtResource("1_tt5f1")
+theme_override_font_sizes/font_size = 64
+text = "QUIT"
+flat = true
+
+[node name="Stars" type="Node" parent="CanvasLayer"]
+
+[node name="TextureRect" type="TextureRect" parent="CanvasLayer/Stars"]
+offset_left = 795.0
+offset_top = 66.0
+offset_right = 835.0
+offset_bottom = 106.0
+texture = ExtResource("2_853f1")
+
+[node name="TextureRect2" type="TextureRect" parent="CanvasLayer/Stars"]
+offset_left = 328.0
+offset_top = 451.0
+offset_right = 368.0
+offset_bottom = 491.0
+texture = ExtResource("2_853f1")
+
+[node name="TextureRect3" type="TextureRect" parent="CanvasLayer/Stars"]
+offset_left = 932.0
+offset_top = 390.0
+offset_right = 972.0
+offset_bottom = 430.0
+texture = ExtResource("2_853f1")
+
+[node name="TextureRect4" type="TextureRect" parent="CanvasLayer/Stars"]
+offset_left = 130.0
+offset_top = 94.0
+offset_right = 170.0
+offset_bottom = 134.0
+texture = ExtResource("2_853f1")
+
+[node name="TextureRect5" type="TextureRect" parent="CanvasLayer/Stars"]
+offset_left = 1012.0
+offset_top = 260.0
+offset_right = 1052.0
+offset_bottom = 300.0
+texture = ExtResource("3_8saeu")
+
+[node name="TextureRect6" type="TextureRect" parent="CanvasLayer/Stars"]
+offset_left = 75.0
+offset_top = 362.0
+offset_right = 115.0
+offset_bottom = 402.0
+texture = ExtResource("3_8saeu")
+
+[node name="TextureRect7" type="TextureRect" parent="CanvasLayer/Stars"]
+offset_left = 1087.0
+offset_top = 462.0
+offset_right = 1127.0
+offset_bottom = 502.0
+texture = ExtResource("3_8saeu")
+
+[node name="Gifts" type="Node" parent="CanvasLayer"]
+
+[node name="TextureRect" type="TextureRect" parent="CanvasLayer/Gifts"]
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_top = -64.0
+offset_right = 64.0
+grow_vertical = 0
+texture = ExtResource("4_df05h")
+
+[node name="TextureRect5" type="TextureRect" parent="CanvasLayer/Gifts"]
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 490.0
+offset_top = -64.0
+offset_right = 618.0
+grow_vertical = 0
+texture = ExtResource("4_df05h")
+
+[node name="TextureRect7" type="TextureRect" parent="CanvasLayer/Gifts"]
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 864.0
+offset_top = -64.0
+offset_right = 992.0
+grow_vertical = 0
+scale = Vector2(-1, 1)
+texture = ExtResource("4_df05h")
+
+[node name="TextureRect9" type="TextureRect" parent="CanvasLayer/Gifts"]
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 984.0
+offset_top = -64.0
+offset_right = 1112.0
+grow_vertical = 0
+texture = ExtResource("4_df05h")
+
+[node name="TextureRect3" type="TextureRect" parent="CanvasLayer/Gifts"]
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 374.0
+offset_top = -64.0
+offset_right = 502.0
+grow_vertical = 0
+scale = Vector2(-1, 1)
+texture = ExtResource("4_df05h")
+
+[node name="TextureRect2" type="TextureRect" parent="CanvasLayer/Gifts"]
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 122.0
+offset_top = -64.0
+offset_right = 250.0
+grow_vertical = 0
+texture = ExtResource("5_8um5k")
+
+[node name="TextureRect6" type="TextureRect" parent="CanvasLayer/Gifts"]
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 613.0
+offset_top = -64.0
+offset_right = 741.0
+grow_vertical = 0
+texture = ExtResource("5_8um5k")
+
+[node name="TextureRect8" type="TextureRect" parent="CanvasLayer/Gifts"]
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 987.0
+offset_top = -64.0
+offset_right = 1115.0
+grow_vertical = 0
+scale = Vector2(-1, 1)
+texture = ExtResource("5_8um5k")
+
+[node name="TextureRect10" type="TextureRect" parent="CanvasLayer/Gifts"]
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 1107.0
+offset_top = -64.0
+offset_right = 1235.0
+grow_vertical = 0
+texture = ExtResource("5_8um5k")
+
+[node name="TextureRect4" type="TextureRect" parent="CanvasLayer/Gifts"]
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 498.0
+offset_top = -64.0
+offset_right = 626.0
+grow_vertical = 0
+scale = Vector2(-1, 1)
+texture = ExtResource("5_8um5k")
+
+[connection signal="pressed" from="CanvasLayer/VBoxContainer/Button" to="." method="_on_button_pressed"]
+[connection signal="pressed" from="CanvasLayer/VBoxContainer/Button2" to="." method="_on_button_2_pressed"]
+[connection signal="pressed" from="CanvasLayer/VBoxContainer/Button3" to="." method="_on_button_3_pressed"]

@@ -1,0 +1,146 @@
+[gd_scene load_steps=27 format=3 uid="uid://bbn64ie22itei"]
+
+[ext_resource type="Script" uid="uid://bdh8n7a2mlc7b" path="res://Scripts/Bell.gd" id="1_16phg"]
+[ext_resource type="Texture2D" uid="uid://ddqm0jiypmsya" path="res://Sprites/Bell/Bell-0.png" id="2_334wv"]
+[ext_resource type="Texture2D" uid="uid://ch0ph7d1g8vht" path="res://Sprites/Bell/Bell-1.png" id="3_qko3g"]
+[ext_resource type="Texture2D" uid="uid://dxe6ky116cm4l" path="res://Sprites/Bell/Bell-2.png" id="4_xrrau"]
+[ext_resource type="Texture2D" uid="uid://cl5v002tl8j0r" path="res://Sprites/Bell/Bell-3.png" id="5_ftbni"]
+[ext_resource type="Texture2D" uid="uid://b5d8idwgm5g7y" path="res://Sprites/Bell/Bell-4.png" id="6_j3b3l"]
+[ext_resource type="Texture2D" uid="uid://ckg4cwh7bqsm8" path="res://Sprites/Bell/Bell-5.png" id="7_eorkn"]
+[ext_resource type="Texture2D" uid="uid://bqkjh265syl4j" path="res://Sprites/Bell/Bell-6.png" id="8_koxxa"]
+[ext_resource type="Texture2D" uid="uid://df446ghf3mae1" path="res://Sprites/Bell/Bell-7.png" id="9_xjq2r"]
+[ext_resource type="Texture2D" uid="uid://ebeihaj7pjn7" path="res://Sprites/Ring/Ring-Idle.png" id="10_h2ovi"]
+[ext_resource type="Texture2D" uid="uid://g16leu5w3ew" path="res://Sprites/Ring/Ring-0.png" id="10_kjtu5"]
+[ext_resource type="Texture2D" uid="uid://ch3xve22qfgr1" path="res://Sprites/Ring/Ring-1.png" id="11_h2ovi"]
+[ext_resource type="Texture2D" uid="uid://cmqqwuc6mf3j0" path="res://Sprites/Ring/Ring-2.png" id="12_kbwfw"]
+[ext_resource type="Texture2D" uid="uid://cl6b7ppdwcpgn" path="res://Sprites/Ring/Ring-3.png" id="13_1mwo2"]
+[ext_resource type="Texture2D" uid="uid://ch085jqakixql" path="res://Sprites/Ring/Ring-4.png" id="14_f215r"]
+[ext_resource type="Texture2D" uid="uid://c1hto7e10um4b" path="res://Sprites/Ring/Ring-5.png" id="15_2x11b"]
+[ext_resource type="Texture2D" uid="uid://bmtur4dppkdpc" path="res://Sprites/Ring/Ring-6.png" id="16_8fbch"]
+[ext_resource type="Texture2D" uid="uid://cx8l1g8nis0b5" path="res://Sprites/Ring/Ring-7.png" id="17_st70y"]
+[ext_resource type="Texture2D" uid="uid://b2m0yx5cfg3s2" path="res://Sprites/Ring/Ring-8.png" id="18_33n1k"]
+[ext_resource type="Texture2D" uid="uid://wy50x6n7qfqg" path="res://Sprites/Ring/Ring-9.png" id="19_yy3a4"]
+[ext_resource type="Texture2D" uid="uid://cbkuqabw71yo5" path="res://Sprites/Ring/Ring-10.png" id="20_gyx4p"]
+[ext_resource type="Texture2D" uid="uid://clu8que48q56m" path="res://Sprites/Ring/Ring-11.png" id="21_e5i7a"]
+[ext_resource type="AudioStream" uid="uid://v4n6bdcv2w2y" path="res://Sounds/Ring.mp3" id="23_kbwfw"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_1wgkh"]
+size = Vector2(42, 51)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_lwv0w"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_334wv")
+}],
+"loop": true,
+"name": &"Idle",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_334wv")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_qko3g")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_xrrau")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_ftbni")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_j3b3l")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_eorkn")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_koxxa")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_xjq2r")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_334wv")
+}],
+"loop": false,
+"name": &"Ring",
+"speed": 10.0
+}]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_3uwo0"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("10_h2ovi")
+}],
+"loop": true,
+"name": &"Idle",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("10_kjtu5")
+}, {
+"duration": 1.0,
+"texture": ExtResource("11_h2ovi")
+}, {
+"duration": 1.0,
+"texture": ExtResource("12_kbwfw")
+}, {
+"duration": 1.0,
+"texture": ExtResource("13_1mwo2")
+}, {
+"duration": 1.0,
+"texture": ExtResource("14_f215r")
+}, {
+"duration": 1.0,
+"texture": ExtResource("15_2x11b")
+}, {
+"duration": 1.0,
+"texture": ExtResource("16_8fbch")
+}, {
+"duration": 1.0,
+"texture": ExtResource("17_st70y")
+}, {
+"duration": 1.0,
+"texture": ExtResource("18_33n1k")
+}, {
+"duration": 1.0,
+"texture": ExtResource("19_yy3a4")
+}, {
+"duration": 1.0,
+"texture": ExtResource("20_gyx4p")
+}, {
+"duration": 1.0,
+"texture": ExtResource("21_e5i7a")
+}],
+"loop": false,
+"name": &"Ring",
+"speed": 12.0
+}]
+
+[node name="Area2D" type="Area2D"]
+script = ExtResource("1_16phg")
+influence_radius = 50.0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, -0.5)
+shape = SubResource("RectangleShape2D_1wgkh")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_lwv0w")
+animation = &"Ring"
+frame = 8
+frame_progress = 1.0
+
+[node name="AnimatedSprite2D2" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_3uwo0")
+animation = &"Idle"
+autoplay = "Idle"
+
+[node name="ring" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("23_kbwfw")
+bus = &"SFX"

@@ -1,0 +1,113 @@
+[gd_scene load_steps=17 format=3 uid="uid://jh7o7lbfc8ox"]
+
+[ext_resource type="Script" uid="uid://ci5i5yl2mte53" path="res://Scripts/santa.gd" id="1_g3pfg"]
+[ext_resource type="Texture2D" uid="uid://1suppskf71st" path="res://Sprites/Santa/Santa-air-0.png" id="2_7mwh8"]
+[ext_resource type="Texture2D" uid="uid://b2kqewq51yvmy" path="res://Sprites/Santa/Santa-fall-3.png" id="2_p58ir"]
+[ext_resource type="Texture2D" uid="uid://dc2ixldqo07qb" path="res://Sprites/Santa/Santa-fall-4.png" id="3_0ym8c"]
+[ext_resource type="Texture2D" uid="uid://c5h7f47qwho25" path="res://Sprites/Santa/Santa-air-1.png" id="3_p8m0x"]
+[ext_resource type="Texture2D" uid="uid://cytkhliq0r55w" path="res://Sprites/Santa/Santa-fall-5.png" id="4_432ik"]
+[ext_resource type="Texture2D" uid="uid://duvaqtk4f8lk" path="res://Sprites/Santa/Santa-fall-0.png" id="5_xrbvt"]
+[ext_resource type="Texture2D" uid="uid://t2ktkp1gmgj0" path="res://Sprites/Santa/Santa-fall-1.png" id="6_py375"]
+[ext_resource type="Texture2D" uid="uid://m5eyh46qc277" path="res://Sprites/Santa/Santa-fall-2.png" id="7_q3iwg"]
+[ext_resource type="Texture2D" uid="uid://cxwlgkj2vk6jn" path="res://Sprites/Air-blow/Sprite-0001.png" id="10_py375"]
+[ext_resource type="Texture2D" uid="uid://1q503fqrbi10" path="res://Sprites/Air-blow/Sprite-0002.png" id="11_q3iwg"]
+[ext_resource type="Texture2D" uid="uid://btuwn4nftkdv1" path="res://Sprites/Air-blow/Sprite-0003.png" id="12_nxghp"]
+[ext_resource type="Texture2D" uid="uid://ds344m6ijqv26" path="res://Sprites/Air-blow/Sprite-0009.png" id="13_hyklb"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_me43r"]
+size = Vector2(20, 62)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_l153n"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_p58ir")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_0ym8c")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_432ik")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_0ym8c")
+}],
+"loop": true,
+"name": &"Fall",
+"speed": 15.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("5_xrbvt")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_py375")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_q3iwg")
+}],
+"loop": false,
+"name": &"Fall-transition",
+"speed": 15.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_p8m0x")
+}],
+"loop": false,
+"name": &"Fly",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_7mwh8")
+}],
+"loop": true,
+"name": &"Idle",
+"speed": 5.0
+}]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_m2mwr"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("10_py375")
+}, {
+"duration": 1.0,
+"texture": ExtResource("11_q3iwg")
+}, {
+"duration": 1.0,
+"texture": ExtResource("12_nxghp")
+}],
+"loop": false,
+"name": &"Blow",
+"speed": 3.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("13_hyklb")
+}],
+"loop": true,
+"name": &"Idle",
+"speed": 5.0
+}]
+
+[node name="CharacterBody2D" type="CharacterBody2D"]
+script = ExtResource("1_g3pfg")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, -31)
+shape = SubResource("RectangleShape2D_me43r")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(0, -37)
+sprite_frames = SubResource("SpriteFrames_l153n")
+animation = &"Fall-transition"
+
+[node name="AnimatedSprite2D2" type="AnimatedSprite2D" parent="."]
+position = Vector2(0, 32)
+sprite_frames = SubResource("SpriteFrames_m2mwr")
+animation = &"Idle"
+autoplay = "Idle"
+
+[connection signal="animation_finished" from="AnimatedSprite2D" to="." method="_on_animated_sprite_2d_animation_finished"]
