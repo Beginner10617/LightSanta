@@ -389,7 +389,7 @@ label_settings = SubResource("LabelSettings_acvyw")
 zoom = Vector2(2.5, 2.5)
 script = ExtResource("1_gl6un")
 target = NodePath("../Player")
-Offset = Vector2(0, -110)
+Offset = Vector2(0, -100)
 
 [node name="SFX-Bell" type="AudioStreamPlayer2D" parent="Camera2D"]
 stream = ExtResource("10_71axn")
