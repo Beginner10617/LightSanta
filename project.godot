@@ -23,6 +23,7 @@ Music="*res://Scenes/music.tscn"
 
 window/stretch/mode="canvas_items"
 window/stretch/scale_mode="integer"
+window/dpi/allow_hidpi=false
 
 [editor]
 
